@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Xentro AI Agency – Portfolio & Pricing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Xentro AI Agency – AI Agents, Automation, Websites, Software Tools, Songs, Video Editing & Graphics." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --card: #101522;
+      --accent: #4f46e5;
+      --accent-soft: #6366f1;
+      --accent-2: #f97316;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --radius-lg: 18px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Layout */
+
+    .container {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    section {
+      padding: 4.5rem 0;
+    }
+
+    @media (min-width: 768px) {
+      section {
+        padding: 5.5rem 0;
+      }
+    }
+
+    /* Navbar */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.4));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 1.25rem;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .brand-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: conic-gradient(from 180deg, #4f46e5, #f97316, #22c55e, #06b6d4, #4f46e5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(79, 70, 229, 0.8);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .brand-name {
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      font-size: 0.95rem;
+    }
+
+    .brand-sub {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: none;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      position: relative;
+      padding-bottom: 0.15rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--accent), var(--accent-2));
+      transition: width 0.22s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.18s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+      box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 0 26px rgba(79, 70, 229, 0.7);
+    }
+
+    .btn-outline {
+      border-color: rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent-soft);
+      color: var(--text);
+      background: rgba(30, 64, 175, 0.25);
+    }
+
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      transition: all 0.2s ease;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(3px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-3px) rotate(-45deg);
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      padding: 0.75rem 1.25rem 0.9rem;
+      gap: 0.45rem;
+      border-top: 1px solid rgba(31, 41, 55, 0.8);
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    .mobile-nav a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding: 0.2rem 0;
+    }
+
+    .mobile-nav a:hover {
+      color: var(--text);
+    }
+
+    .mobile-nav .btn {
+      margin-top: 0.5rem;
+      width: 100%;
+      justify-content: center;
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+      .nav-cta {
+        display: block;
+      }
+      .menu-toggle {
+        display: none;
+      }
+      .mobile-nav {
+        display: none !important;
+      }
+      .navbar-inner {
+        padding-inline: 0;
+      }
+    }
+
+    /* Hero */
+
+    .hero {
+      padding-top: 2.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+        gap: 3rem;
+      }
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #4ade80, #16a34a);
+      box-shadow: 0 0 10px rgba(74, 222, 128, 0.9);
+    }
+
+    .hero-title {
+      font-size: 2.1rem;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.9rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 2.7rem;
+      }
+    }
+
+    .hero-title span {
+      background: linear-gradient(to right, var(--accent-soft), var(--accent-2));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 32rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-sub-highlight {
+      color: #e5e7eb;
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.7rem;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-stat span {
+      display: block;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      border-radius: 24px;
+      background: radial-gradient(circle at top left, rgba(99, 102, 241, 0.28), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.18), transparent 55%),
+        #020617;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      padding: 1.2rem 1.1rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .hero-card {
+        padding: 1.4rem 1.4rem;
+      }
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.2rem;
+      gap: 1rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .hero-card-tag {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .hero-badge {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #22c55e, #15803d);
+    }
+
+    .hero-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1rem;
+    }
+
+    .pill {
+      font-size: 0.7rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .pricing-mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1.1rem;
+      font-size: 0.75rem;
+    }
+
+    .pricing-mini-item {
+      padding: 0.6rem 0.6rem;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .pricing-mini-item-title {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .pricing-mini-item-amount {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .agent-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(6, 182, 212, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      font-size: 0.7rem;
+      color: #e0f2fe;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    .hero-glow {
+      position: absolute;
+      inset: -30%;
+      pointer-events: none;
+      background: radial-gradient(circle at 10% 0%, rgba(59, 130, 246, 0.25), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(249, 115, 22, 0.2), transparent 55%);
+      opacity: 0.8;
+      mix-blend-mode: screen;
+      z-index: -1;
+    }
+
+    /* Sections */
+
+    .section-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title span {
+      background: linear-gradient(to right, var(--accent-soft), var(--accent-2));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: var(--muted);
+      max-width: 30rem;
+      margin-bottom: 1.6rem;
+    }
+
+    /* Services / Pricing Cards */
+
+    .category-block {
+      margin-bottom: 2.5rem;
+    }
+
+    .category-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .category-title {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .category-tagline {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .category-label {
+      font-size: 0.7rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+    }
+
+    @media (min-width: 640px) {
+      .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 960px) {
+      .card-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top left, rgba(79, 70, 229, 0.22), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(15, 23, 42, 1), rgba(15, 23, 42, 1));
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      padding: 0.9rem 0.9rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top right, rgba(79, 70, 229, 0.18), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+
+    .card:hover::after {
+      opacity: 1;
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.15rem;
+    }
+
+    .card-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-price {
+      font-size: 0.85rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .card-price span {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .card-note {
+      font-size: 0.73rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-top: 0.4rem;
+    }
+
+    .pill-small {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--muted);
+    }
+
+    .btn-card {
+      font-size: 0.75rem;
+      padding: 0.35rem 0.8rem;
+    }
+
+    /* Contact */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 800px) {
+      .contact-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      }
+    }
+
+    .contact-card {
+      border-radius: 22px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      padding: 1.4rem 1.2rem 1.5rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-card p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .field label {
+      font-size: 0.75rem;
+      color: #e5e7eb;
+    }
+
+    .input,
+    .textarea {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 12px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      padding: 0.55rem 0.6rem;
+      color: var(--text);
+      font-size: 0.8rem;
+      font-family: inherit;
+      resize: vertical;
+      min-height: 38px;
+      outline: none;
+      transition: border 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .input:focus,
+    .textarea:focus {
+      border-color: var(--accent-soft);
+      box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.6);
+      background: rgba(15, 23, 42, 1);
+    }
+
+    .contact-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.75rem;
+    }
+
+    .contact-meta span {
+      color: var(--text);
+    }
+
+    .contact-side {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.9rem;
+    }
+
+    .tag {
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      font-size: 0.72rem;
+    }
+
+    .mini-note {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 1rem;
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding: 1.4rem 0 2rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <div class="brand">
+        <div class="brand-icon">XA</div>
+        <div>
+          <div class="brand-name">Xentro AI Agency</div>
+          <div class="brand-sub">AI • Automation • Creative</div>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#work">Areas</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#contact" class="btn btn-primary">Get Custom Quote</a>
+      </div>
+
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#work">Areas</a>
+      <a href="#contact">Contact</a>
+      <button class="btn btn-primary">Get Custom Quote</button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">
+            <div class="eyebrow-dot"></div>
+            Xentro AI Agency • India
+          </div>
+          <h1 class="hero-title">
+            AI agents, automations & creative assets for
+            <span>real business outcomes.</span>
+          </h1>
+          <p class="hero-subtitle">
+            From <span class="hero-sub-highlight">AI chatbots, voice agents & workflows</span>
+            to websites, tools, songs & reels — one studio for
+            <span class="hero-sub-highlight">automation + branding + content</span>.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Book a Project Call</a>
+            <a href="#pricing" class="btn btn-outline">View Full Pricing</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span>6+</span>
+              Core service categories
+            </div>
+            <div class="hero-stat">
+              <span>₹199 – ₹14,999</span>
+              Flexible project-based pricing
+            </div>
+            <div class="hero-stat">
+              <span>AI + Creative</span>
+              Tech + branding in one place
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-card">
+            <div class="hero-glow"></div>
+            <div class="hero-card-header">
+              <div>
+                <div class="hero-card-title">Instant Agency Snapshot</div>
+                <div class="hero-card-tag">What can Xentro build for you?</div>
+              </div>
+              <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                AI-ready for small businesses
+              </div>
+            </div>
+
+            <div class="hero-pill-row">
+              <span class="pill">AI Agents & Automations</span>
+              <span class="pill">Websites & Mini-Tools</span>
+              <span class="pill">Songs, Reels & Posters</span>
+            </div>
+
+            <div class="pricing-mini-grid">
+              <div class="pricing-mini-item">
+                <div class="pricing-mini-item-title">Text AI Agent</div>
+                <div class="pricing-mini-item-amount">₹1,999 – ₹3,499</div>
+                <div class="card-note">Chatbot, FAQs, lead capture</div>
+              </div>
+              <div class="pricing-mini-item">
+                <div class="pricing-mini-item-title">Voice AI Agent</div>
+                <div class="pricing-mini-item-amount">₹3,999 – ₹6,499</div>
+                <div class="card-note">Call handling & follow-ups</div>
+              </div>
+              <div class="pricing-mini-item">
+                <div class="pricing-mini-item-title">1-Page Website</div>
+                <div class="pricing-mini-item-amount">₹1,999 – ₹3,499</div>
+                <div class="card-note">Portfolio / landing page</div>
+              </div>
+              <div class="pricing-mini-item">
+                <div class="pricing-mini-item-title">Promo Reel</div>
+                <div class="pricing-mini-item-amount">₹799 – ₹1,499</div>
+                <div class="card-note">1-min brand video</div>
+              </div>
+            </div>
+
+            <div class="agent-badge">
+              <span>⚙</span> Business automation workflow: ₹1,499 – ₹3,999
+            </div>
+
+            <div class="hero-card-footer">
+              <span>Song + edit + poster combos available.</span>
+              <span style="font-size:0.7rem;color:#e5e7eb;">Start small, scale later →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES / AREAS -->
+    <section id="services">
+      <div class="container">
+        <p class="section-tag">What we do</p>
+        <h2 class="section-title">End-to-end <span>AI + Creative</span> setup.</h2>
+        <p class="section-subtitle">
+          One place to set up your chat/voice agents, automation workflows, websites, mini-tools,
+          songs, reels and visual branding — aligned with your pricing structure.
+        </p>
+
+        <!-- AI Agents -->
+        <div class="category-block">
+          <div class="category-header">
+            <div>
+              <h3 class="category-title">1. AI Agents & Automation</h3>
+              <p class="category-tagline">
+                Chatbots, voice agents, and workflows that reduce manual work.
+              </p>
+            </div>
+            <span class="category-label">Perfect for lead gen, support & follow-ups</span>
+          </div>
+
+          <div class="card-grid">
+            <div class="card">
+              <div>
+                <h4 class="card-title">Chatbot / Text AI Agent</h4>
+                <p class="card-desc">WhatsApp / website chatbot for FAQs, leads or support.</p>
+                <p class="card-price"><span>₹1,999 – ₹3,499</span></p>
+                <p class="card-note">Ideal for landing pages, services, and info-based businesses.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">Scripts, flows & basic training included</span>
+                <button class="btn btn-outline btn-card">Discuss your use-case</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div>
+                <h4 class="card-title">Voice Calling AI Agent</h4>
+                <p class="card-desc">AI agent that can handle calls, reminders, and follow-ups.</p>
+                <p class="card-price"><span>₹3,999 – ₹6,499</span></p>
+                <p class="card-note">For lead qualification, confirmations & client updates.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">Call flows + basic integration</span>
+                <button class="btn btn-outline btn-card">Plan a call script</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div>
+                <h4 class="card-title">Business Automation Workflow</h4>
+                <p class="card-desc">Connect forms, sheets, CRM & notifications to reduce manual work.</p>
+                <p class="card-price"><span>₹1,499 – ₹3,999</span></p>
+                <p class="card-note">Lead routing, follow-up reminders, status updates & more.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">Works with your existing tools</span>
+                <button class="btn btn-outline btn-card">Map your workflow</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div>
+                <h4 class="card-title">API Integration (Forms / Sheets / CRM)</h4>
+                <p class="card-desc">Connect websites, tools and AI agents to your data.</p>
+                <p class="card-price"><span>₹999 – ₹2,499</span></p>
+                <p class="card-note">Simple, focused integrations for small to mid-level setups.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">Forms, Google Sheets, basic CRM</span>
+                <button class="btn btn-outline btn-card">Check integration scope</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Software -->
+        <div class="category-block" id="work">
+          <div class="category-header">
+            <div>
+              <h3 class="category-title">2. Software Tools / Dashboards / Mini-CRM</h3>
+              <p class="category-tagline">
+                Light-weight tools that solve one clear problem for your business.
+              </p>
+            </div>
+            <span class="category-label">Clean UI • Fast • No bloat</span>
+          </div>
+
+          <div class="card-grid">
+            <div class="card">
+              <div>
+                <h4 class="card-title">Small Tool / Calculator / Script</h4>
+                <p class="card-desc">Simple utilities: quote calculators, scripts or automations.</p>
+                <p class="card-price"><span>₹1,999 – ₹3,999</span></p>
+                <p class="card-note">Great for websites, landing pages & internal workflows.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">Deployed for your use</span>
+                <button class="btn btn-outline btn-card">Share your idea</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div>
+                <h4 class="card-title">Mini CRM / Dashboard</h4>
+                <p class="card-desc">Track leads, projects, payments or content in one place.</p>
+                <p class="card-price"><span>₹4,999 – ₹7,999</span></p>
+                <p class="card-note">For small teams who outgrew Google Sheets.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">Custom views & basic filters</span>
+                <button class="btn btn-outline btn-card">Design a mini-CRM</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div>
+                <h4 class="card-title">Custom Small Software (Login + Panel)</h4>
+                <p class="card-desc">Role-based panel for your team, students or clients.</p>
+                <p class="card-price"><span>₹7,999 – ₹11,999</span></p>
+                <p class="card-note">Auth, dashboards & simple admin features included.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">Solid base, extend later</span>
+                <button class="btn btn-outline btn-card">Scope your panel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Websites -->
+        <div class="category-block">
+          <div class="category-header">
+            <div>
+              <h3 class="category-title">3. Website Development</h3>
+              <p class="category-tagline">
+                Clean, mobile-friendly websites that load fast and explain clearly.
+              </p>
+            </div>
+            <span class="category-label">Responsive • Conversion-oriented</span>
+          </div>
+
+          <div class="card-grid">
+            <div class="card">
+              <div>
+                <h4 class="card-title">1-Page Portfolio Website</h4>
+                <p class="card-desc">Personal portfolio or one-offer landing page.</p>
+                <p class="card-price"><span>₹1,999 – ₹3,499</span></p>
+                <p class="card-note">Perfect for freelancers, creators & solo founders.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">Mobile-first design</span>
+                <button class="btn btn-outline btn-card">Start your portfolio</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div>
+                <h4 class="card-title">2–3 Page Website</h4>
+                <p class="card-desc">Home, services and contact / about in one clean site.</p>
+                <p class="card-price"><span>₹3,999 – ₹5,999</span></p>
+                <p class="card-note">For small local businesses & agencies.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">Basic forms & sections</span>
+                <button class="btn btn-outline btn-card">Plan site structure</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div>
+                <h4 class="card-title">Company Website (4–6 sections)</h4>
+                <p class="card-desc">Brand story, services, teams, FAQs & contact.</p>
+                <p class="card-price"><span>₹6,999 – ₹9,999</span></p>
+                <p class="card-note">For SMEs who want a serious online presence.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">Clean layouts, copy support</span>
+                <button class="btn btn-outline btn-card">Outline your company site</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div>
+                <h4 class="card-title">Basic Ecommerce (No backend)</h4>
+                <p class="card-desc">Product catalog with basic order / enquiry flow.</p>
+                <p class="card-price"><span>₹9,999 – ₹14,999</span></p>
+                <p class="card-note">Perfect for catalog + WhatsApp / form orders.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">Start selling without heavy setup</span>
+                <button class="btn btn-outline btn-card">List your products</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Songs -->
+        <div class="category-block">
+          <div class="category-header">
+            <div>
+              <h3 class="category-title">4. AI-Assisted Song Production</h3>
+              <p class="category-tagline">
+                Hooks, brand anthems, short promos & language-specific tracks.
+              </p>
+            </div>
+            <span class="category-label">Hindi • Gujarati • Short hooks</span>
+          </div>
+
+          <div class="card-grid">
+            <div class="card">
+              <div>
+                <h4 class="card-title">30-sec Song</h4>
+                <p class="card-desc">Quick hooks for ads, intros, or reels.</p>
+                <p class="card-price"><span>₹999</span></p>
+                <p class="card-note">Great for campaign intros & promos.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">AI + creative direction</span>
+                <button class="btn btn-outline btn-card">Send your script</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div>
+                <h4 class="card-title">60-sec Song</h4>
+                <p class="card-desc">One minute story-driven or brand-driven track.</p>
+                <p class="card-price"><span>₹1,599</span></p>
+                <p class="card-note">Ideal for full reels & promos.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">Perfect for ads & reels</span>
+                <button class="btn btn-outline btn-card">Share vibe & mood</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div>
+                <h4 class="card-title">4-min Hindi / Gujarati Song</h4>
+                <p class="card-desc">Full-length track for brand, events or content.</p>
+                <p class="card-price"><span>₹2,999 – ₹3,499</span></p>
+                <p class="card-note">Language: Hindi or Gujarati as per input.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">Lyrics + melody + structure</span>
+                <button class="btn btn-outline btn-card">Describe your concept</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video -->
+        <div class="category-block">
+          <div class="category-header">
+            <div>
+              <h3 class="category-title">5. Video Editing</h3>
+              <p class="category-tagline">
+                From simple reels to YouTube edits & promo videos.
+              </p>
+            </div>
+            <span class="category-label">Instagram • YouTube • Ads</span>
+          </div>
+
+          <div class="card-grid">
+            <div class="card">
+              <div>
+                <h4 class="card-title">Simple Reels (10–20 sec)</h4>
+                <p class="card-desc">Quick edits with cuts, text, and simple effects.</p>
+                <p class="card-price"><span>₹199 – ₹399</span></p>
+                <p class="card-note">Perfect for quantity content & trends.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">Hook-focused layout</span>
+                <button class="btn btn-outline btn-card">Batch reel offer</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div>
+                <h4 class="card-title">Reels (30–45 sec)</h4>
+                <p class="card-desc">Story-based, promo-style or educational reels.</p>
+                <p class="card-price"><span>₹399 – ₹699</span></p>
+                <p class="card-note">Great for brand storytelling & offers.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">Captions & highlights</span>
+                <button class="btn btn-outline btn-card">Share raw clips</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div>
+                <h4 class="card-title">Promo Video (1 min)</h4>
+                <p class="card-desc">Tight, high-impact promo edit with music & graphics.</p>
+                <p class="card-price"><span>₹799 – ₹1,499</span></p>
+                <p class="card-note">For product launches, events, or campaigns.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">Brand-aligned colors & fonts</span>
+                <button class="btn btn-outline btn-card">Plan promo structure</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div>
+                <h4 class="card-title">YouTube Edit (5–10 min)</h4>
+                <p class="card-desc">Full edit with cuts, B-roll, text & clean pacing.</p>
+                <p class="card-price"><span>₹1,499 – ₹2,999</span></p>
+                <p class="card-note">Perfect for tutorials, vlogs & breakdowns.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">Long-form content ready</span>
+                <button class="btn btn-outline btn-card">Share channel style</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Graphics -->
+        <div class="category-block">
+          <div class="category-header">
+            <div>
+              <h3 class="category-title">6. Posters & Graphics</h3>
+              <p class="category-tagline">
+                Thumbnails, posters and campaign packs aligned with your brand.
+              </p>
+            </div>
+            <span class="category-label">Social • Ads • YouTube</span>
+          </div>
+
+          <div class="card-grid">
+            <div class="card">
+              <div>
+                <h4 class="card-title">Basic Poster</h4>
+                <p class="card-desc">Clean, simple design for offers or events.</p>
+                <p class="card-price"><span>₹149 – ₹249</span></p>
+                <p class="card-note">Minimal layout, quick delivery.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">Perfect for quick campaigns</span>
+                <button class="btn btn-outline btn-card">Send content & logo</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div>
+                <h4 class="card-title">Premium Poster</h4>
+                <p class="card-desc">More detailed layout, effects & visual polish.</p>
+                <p class="card-price"><span>₹299 – ₹499</span></p>
+                <p class="card-note">For key announcements and hero creatives.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">Brand-driven design</span>
+                <button class="btn btn-outline btn-card">Share reference style</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div>
+                <h4 class="card-title">Campaign Poster Pack (5 posters)</h4>
+                <p class="card-desc">Multiple creatives for one campaign or offer.</p>
+                <p class="card-price"><span>₹1,199 – ₹1,499</span></p>
+                <p class="card-note">Ideal for launches & multi-day promos.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">Consistent look across posts</span>
+                <button class="btn btn-outline btn-card">Plan your campaign</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div>
+                <h4 class="card-title">Thumbnail</h4>
+                <p class="card-desc">Scroll-stopping YouTube / video thumbnails.</p>
+                <p class="card-price"><span>₹149 – ₹249</span></p>
+                <p class="card-note">Optimised for click-through & clarity.</p>
+              </div>
+              <div class="card-footer">
+                <span class="pill-small">YouTube & short-form ready</span>
+                <button class="btn btn-outline btn-card">Send video topic</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+        <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Contact</div>
+          <h2 class="section-title">Tell us what you need</h2>
+          <p class="section-sub">
+            Share a quick idea and we’ll reply with a simple plan and price range. No corporate formality, just clear communication.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Talk to Xentro</h3>
+            <p>
+              Best way to start is a short message with what you want – website, AI agent, software, songs or a full creative package.
+            </p>
+            <div class="contact-details">
+              <div><span>Mobile / WhatsApp:</span> 9687892651</div>
+              <div><span>Email:</span> bandihashmi04@gmail.com</div>
+              <div><span>Location:</span> India (working remote)</div>
+            </div>
+            <p class="contact-hint">
+              These are your real contact details. Update them here if you ever change number or email.
+            </p>
+          </div>
+
+          <form class="contact-form">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" type="text" placeholder="Your name / company" />
+            </div>
+            <div class="field">
+              <label for="service">What do you need?</label>
+              <select id="service">
+                <option selected disabled>Select one option</option>
+                <option>Website</option>
+                <option>AI agent / automation</option>
+                <option>Software / tool</option>
+                <option>Song package</option>
+                <option>Video editing</option>
+                <option>Posters / graphics</option>
+                <option>Multiple / not sure</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="whatsapp">WhatsApp number</label>
+              <input
+                id="whatsapp"
+                type="tel"
+                placeholder="9687892651"
+              />
+            </div>
+            <div class="field">
+              <label for="message">Project details</label>
+              <textarea
+                id="message"
+                placeholder="Short description, language, approximate budget, deadline, etc."
+              ></textarea>
+            </div>
+            <button type="button" class="btn btn-primary">
+              This form is demo only
+            </button>
+            <p class="contact-hint">
+              For now this form is static. You can later connect it to email, WhatsApp API or any backend when you’re ready.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Xentro AI Agency. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.querySelector(".menu-toggle");
+    const mobileNav = document.getElementById("mobileNav");
+
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("active");
+      const isOpen = toggle.classList.contains("active");
+      mobileNav.style.display = isOpen ? "flex" : "none";
+    });
+
+    // Close mobile nav on link click
+    mobileNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        toggle.classList.remove("active");
+        mobileNav.style.display = "none";
+      });
+    });
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        const targetId = this.getAttribute("href");
+        if (targetId === "#" || targetId === "") return;
+        const target = document.querySelector(targetId);
+        if (!target) return;
+        e.preventDefault();
+        window.scrollTo({
+          top: target.offsetTop - 72,
+          behavior: "smooth",
+        });
+      });
+    });
+
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
